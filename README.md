@@ -24,6 +24,7 @@ And because everything is containerized, Agentic dev tools are bound to your pro
 
 This is meant to be the first setup install. Not the install you do in an already setup repo.
 
+- change `TODO_RENAME` in `./Makefile` to name your project (lowercase) (will tag all docker resources with this name so you can easily manage them)
 - `make init` (it will creat envs, and setup interractive bash to you can run you npm init commands)
 - (in container bash)
   - `pnpm init` etc...(you can create a monorepo/template project, whatever from here)
@@ -35,8 +36,8 @@ You can trash:
 - in file `./Makefile` the lines:
   - `init:` (the whole block)
   - `COMPOSE_INIT: ...`
-  - this `README.md` (the doc for contributors explaining how to use this setuped environment is located in `./docs/docker-dev-env.md`)
-
+- `LICENSE.md` unless you're me lol
+- this `README.md` (the doc for contributors explaining how to use this setuped environment is located in `./docs/docker-dev-env.md`)
 
 ## Issues / Contrib
 

@@ -13,7 +13,7 @@ SHELL := /bin/bash
 export
 
 # Docker config
-COMPOSE_PROJECT_NAME = test-init-to-remove
+COMPOSE_PROJECT_NAME = TODO_RENAME
 DOCKER_COMPOSE_FILE = ./docker/dev/docker-compose.dev.yml
 COMPOSE = docker compose --file $(DOCKER_COMPOSE_FILE) --project-name $(COMPOSE_PROJECT_NAME)
 COMPOSE_INIT = DOCKERFILE=./docker/dev/Dockerfile.devInit $(COMPOSE)
