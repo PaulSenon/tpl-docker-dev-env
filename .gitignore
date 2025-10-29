@@ -3,7 +3,7 @@
 .idea
 
 # Builds
-.pnpn-store
+.pnpm-store
 node_modules
 .build
 .dist
