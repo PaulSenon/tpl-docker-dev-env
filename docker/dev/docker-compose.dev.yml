@@ -1,0 +1,31 @@
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: ${DOCKERFILE:-./docker/dev/Dockerfile.devEnv}
+    init: true
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../../:/app:delegated # Source code mounting
+      - ~/.gitconfig:/root/.gitconfig # Git configuration persistence
+      - volume-pnpm-store:/app/.pnpm-store # Package cache persistence
+      - volume-bash-history:/root/bash_history # Bash history persistence
+      - ~/.local/share/opencode:/root/.local/share/opencode # https://opencode.ai/docs/providers/#credentials
+      - ~/.config/opencode:/root/.config/opencode # https://opencode.ai/docs/config/#global
+      - ~/.claude:/root/.claude # Claude Code cache persistence
+      - ~/.claude.json:/root/.claude.json # Claude Code cache persistence
+      - ~/.codex:/root/.codex # OpenAI cache persistence
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../../.env
+      - ../../.env.local
+      - ../../.env.dev
+      - ../../.env.dev.local
+      - ../../.env.llms.local
+
+volumes:
+  volume-pnpm-store: # Persist package manager cache
+  volume-bash-history: # Persist bash history
